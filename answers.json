@@ -1,0 +1,168 @@
+{
+  "project_name": "Voyex Face Recognition System",
+  "developer_name": "Masna Manideep",
+  "technologies_used": [
+    "Python",
+    "PyTorch",
+    "TorchVision",
+    "NumPy",
+    "Matplotlib",
+    "Pillow",
+    "Scikit-learn",
+    "PyYAML",
+    "tqdm"
+  ],
+  "dataset_details": {
+    "structure": "Directory-based organization with person-wise subfolders",
+    "classes": 31,
+    "image_format": "JPG/PNG",
+    "image_size": "224x224",
+    "splits": {
+      "train": "data/train (person-wise folders)",
+      "val": "data/val (person-wise folders)",
+      "test": "data/test_public (individual images)"
+    },
+    "preprocessing": {
+      "train": [
+        "RandomResizedCrop(224)",
+        "RandomHorizontalFlip(p=0.5)",
+        "ColorJitter",
+        "Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])"
+      ],
+      "validation": [
+        "Resize(256)",
+        "CenterCrop(224)",
+        "ToTensor",
+        "Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])"
+      ]
+    }
+  },
+  "model_architecture": {
+    "base_model": "ResNet50",
+    "embedding_size": 512,
+    "classifier": {
+      "type": "Linear layer",
+      "input_features": 512,
+      "output_features": 31,
+      "bias": true
+    },
+    "features": {
+      "backbone": "Pre-trained ResNet50 (frozen)",
+      "embedding_layer": "Linear(2048, 512) + BatchNorm1d + ReLU",
+      "output": "Linear(512, num_classes)",
+      "dropout": 0.5
+    },
+    "loss_function": "CrossEntropyLoss with label_smoothing=0.1"
+  },
+  "training_configuration": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "epochs": 50,
+    "scheduler": {
+      "name": "cosine",
+      "warmup_epochs": 5,
+      "min_lr": 1e-6
+    },
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.1,
+    "mixed_precision": true,
+    "early_stopping": {
+      "patience": 10,
+      "min_delta": 1e-4
+    },
+    "class_weights": true,
+    "weighted_sampler": true,
+    "device": "CUDA (GPU) if available, else CPU"
+  },
+  "data_augmentation": {
+    "train": [
+      "RandomResizedCrop",
+      "RandomHorizontalFlip",
+      "ColorJitter",
+      "Normalization"
+    ],
+    "validation": [
+      "Resize",
+      "CenterCrop",
+      "ToTensor",
+      "Normalization"
+    ]
+  },
+  "evaluation_metrics": {
+    "primary_metric": "Accuracy",
+    "validation_frequency": "Per epoch",
+    "checkpointing": {
+      "save_dir": "checkpoints/",
+      "save_frequency": "Every epoch",
+      "keep_best": true,
+      "save_latest": true
+    },
+    "tensorboard_logging": true
+  },
+  "inference": {
+    "input": "Single image or batch of images (224x224, RGB)",
+    "preprocessing": [
+      "Resize to 256x256",
+      "Center crop to 224x224",
+      "Normalize using ImageNet stats"
+    ],
+    "output": {
+      "class_id": "Predicted class index (0-30)",
+      "class_name": "Predicted person's name (from class_index.json)",
+      "confidence": "Similarity score (0-1)"
+    },
+    "centroid_based": true,
+    "centroids_file": "checkpoints/centroids.pth"
+  },
+  "deployment": {
+    "docker_support": true,
+    "model_format": "PyTorch checkpoint (.pth)",
+    "required_files": [
+      "checkpoints/best.pth (model weights)",
+      "checkpoints/centroids.pth (class centroids)",
+      "dataset/meta/class_index.json (class name mapping)"
+    ]
+  },
+  "project_structure": {
+    "src/": {
+      "train.py": "Main training script with training loop",
+      "infer.py": "Inference script for making predictions",
+      "model.py": "ResNet-based model definition with custom embedding",
+      "dataset.py": "Data loading and preprocessing pipelines",
+      "visualizations.py": "Visualization utilities (t-SNE, confusion matrix, sample predictions)",
+      "compute_centroids.py": "Script to compute class centroids from embeddings"
+    },
+    "data/": {
+      "train/": "Training images organized in person-wise subfolders",
+      "val/": "Validation images organized in person-wise subfolders",
+      "test_public/": "Test images for inference"
+    },
+    "checkpoints/": {
+      "best.pth": "Best performing model weights",
+      "centroids.pth": "Pre-computed class centroids for inference"
+    },
+    "visualizations/": "Generated plots and visualizations",
+    "config.yaml": "Main configuration file with all hyperparameters",
+    "requirements.txt": "Python dependencies"
+  },
+  "training_output": {
+    "best_model": "checkpoints/best.pth",
+    "centroids": "checkpoints/centroids.pth",
+    "logs": "outputs/logs",
+    "tensorboard": "outputs/tensorboard",
+    "submission": "submission.json (sample predictions on test set)",
+    "visualizations": {
+      "sample_predictions": "visualizations/sample_predictions.png",
+      "tsne_embeddings": "visualizations/tsne_embeddings.png",
+      "confusion_matrix": "visualizations/confusion_matrix.png"
+    }
+  },
+  "notes": [
+    "Model uses ResNet50 as backbone with a custom 512-D embedding layer",
+    "Centroid-based inference is used for better generalization to unseen data",
+    "Training uses mixed precision (FP16) for faster training and reduced memory usage",
+    "Class weights and weighted sampling are used to handle class imbalance",
+    "Learning rate warmup and cosine annealing with restarts are used for better convergence"
+  ]
+}

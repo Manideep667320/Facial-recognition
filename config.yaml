@@ -1,0 +1,63 @@
+# config.yaml - main configuration for training / inference
+seed: 42
+
+data:
+  root: "./data"
+  train_dir: "./data/train"
+  val_dir: "./data/val"
+  test_dir: "./data/test_public"
+  img_size: 224
+  batch_size: 32
+  num_workers: 4
+
+model:
+  backbone: "resnet50"
+  embedding_size: 512
+  pretrained: true
+  use_arcface: true
+  dropout: 0.5
+  num_classes: 31
+
+training:
+  lr: 0.001
+  weight_decay: 0.0001
+  epochs: 50
+  batch_size: 32
+  use_amp: true
+  label_smoothing: 0.1
+  warmup_epochs: 5
+  patience: 10
+  min_lr: 1e-6
+  use_class_weights: true
+  use_weighted_sampler: true
+  
+checkpoint:
+  save_dir: "./checkpoints"
+  save_freq: 1  # Save every epoch
+  
+logging:
+  log_dir: "./outputs/logs"
+  tensorboard_dir: "./outputs/tensorboard"
+
+# Learning rate scheduler
+scheduler:
+  name: "cosine"
+  warmup_epochs: 5
+  min_lr: 1e-6
+  type: cosine
+  warmup_epochs: 3
+
+# amp / device
+use_amp: true
+device: cuda
+
+# checkpointing
+save_every: 1                   # save checkpoint every N epochs
+keep_last_k: 5                  # keep last K checkpoints
+save_best_name: best.pth        # saved at out_dir
+
+# misc
+num_workers: 4
+print_freq: 50
+random_erasing_p: 0.2
+patience_early_stop: 10         # optional early stopping on val top1
