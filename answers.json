@@ -158,11 +158,46 @@
       "confusion_matrix": "visualizations/confusion_matrix.png"
     }
   },
+  "real_time_features": {
+    "video_inference": {
+      "input_source": "Webcam or video file",
+      "face_detection": "Haar Cascade Classifier",
+      "frame_processing": "Real-time with OpenCV",
+      "display": {
+        "bounding_box": true,
+        "class_labels": true,
+        "confidence_scores": true,
+        "fps_counter": true
+      },
+      "controls": {
+        "quit": "Press 'q' to exit",
+        "fullscreen": "Press 'f' to toggle fullscreen"
+      }
+    },
+    "liveness_detection": {
+      "enabled": true,
+      "model": "ResNet18-based binary classifier",
+      "input_size": "224x224",
+      "threshold": 0.85,
+      "features": [
+        "Spoof detection for anti-spoofing",
+        "Real-time frame analysis",
+        "Graceful degradation if model not available"
+      ]
+    },
+    "performance_optimizations": {
+      "device_auto_selection": "Automatically uses CUDA if available, falls back to CPU",
+      "batch_processing": "Single frame processing for real-time performance",
+      "memory_management": "Automatic garbage collection"
+    }
+  },
   "notes": [
     "Model uses ResNet50 as backbone with a custom 512-D embedding layer",
     "Centroid-based inference is used for better generalization to unseen data",
     "Training uses mixed precision (FP16) for faster training and reduced memory usage",
     "Class weights and weighted sampling are used to handle class imbalance",
-    "Learning rate warmup and cosine annealing with restarts are used for better convergence"
+    "Early stopping and model checkpointing are implemented for better training stability",
+    "Real-time video processing with liveness detection for anti-spoofing",
+    "Robust error handling for missing model files or configurations"
   ]
 }
