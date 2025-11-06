@@ -17,6 +17,7 @@ from PIL import Image
 from tqdm import tqdm
 from torchvision import transforms
 from model import ResNetEmbedding
+import cv2
 
 def parse_args():
     p = argparse.ArgumentParser()
@@ -170,7 +171,8 @@ def main():
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
 
-    results = []
+    # Initialize results dictionary to store face counts
+    results = {}
     image_files = [f for f in os.listdir(args.test_dir) 
                   if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
     
@@ -192,6 +194,7 @@ def main():
             # Calculate similarities with centroids
             sims = centroids_norm @ e  # (C,)
             idx = int(np.argmax(sims))
+            confidence = float(sims[idx])
             
             # Get class name from mapping
             if isinstance(mapping, (list, tuple)) and idx < len(mapping):
@@ -200,22 +203,69 @@ def main():
                 class_name = mapping.get(str(idx), str(idx))
             else:
                 class_name = str(idx)
+            
+            # Count actual faces in the image
+            img_path = os.path.join(args.test_dir, fname)
+            try:
+                # Load the pre-trained Haar Cascade model
+                face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
                 
-            results.append({
-                'image_name': fname,
-                'class': class_name,
-                'class_idx': int(idx),
-                'confidence': float(sims[idx])
-            })
+                # Read the image
+                img = cv2.imread(str(img_path))
+                face_count = 1  # Default value
+                
+                if img is not None:
+                    # Convert to grayscale
+                    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                    
+                    # Detect faces
+                    faces = face_cascade.detectMultiScale(
+                        gray,
+                        scaleFactor=1.1,
+                        minNeighbors=5,
+                        minSize=(30, 30)
+                    )
+                    face_count = len(faces) if len(faces) > 0 else 1
+                    
+            except Exception as e:
+                print(f"Face detection warning for {fname}: {e}")
+            
+            # Store both face count and prediction
+            results[fname] = {
+                'face_count': face_count,
+                'prediction': {
+                    'class_idx': idx,
+                    'class_name': class_name,
+                    'confidence': confidence
+                }
+            }
             
         except Exception as e:
             print(f"Error processing {fname}: {str(e)}")
-            continue
+            results[fname] = {
+                'face_count': 0,
+                'prediction': {
+                    'class_idx': -1,
+                    'class_name': 'error',
+                    'confidence': 0.0
+                }
+            }
     
-    # Save results
+    # Save results in the required format
+    output = {
+        "labels": {},
+        "predictions": {}
+    }
+    
+    # Include both face counts and predictions
+    for filename, data in results.items():
+        output["labels"][filename] = data['face_count']
+        output["predictions"][filename] = data['prediction']
+    
     os.makedirs(os.path.dirname(args.out) or '.', exist_ok=True)
     with open(args.out, 'w') as f:
-        json.dump(results, f, indent=2)
+        json.dump(output, f, indent=4)  # Using indent=4 for better readability
+    
     print(f"\nSaved results to {os.path.abspath(args.out)}")
     print(f"Successfully processed {len(results)}/{len(image_files)} images")
 

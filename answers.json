@@ -1,203 +1,1806 @@
 {
-  "project_name": "Voyex Face Recognition System",
-  "developer_name": "Masna Manideep",
-  "technologies_used": [
-    "Python",
-    "PyTorch",
-    "TorchVision",
-    "NumPy",
-    "Matplotlib",
-    "Pillow",
-    "Scikit-learn",
-    "PyYAML",
-    "tqdm"
-  ],
-  "dataset_details": {
-    "structure": "Directory-based organization with person-wise subfolders",
-    "classes": 31,
-    "image_format": "JPG/PNG",
-    "image_size": "224x224",
-    "splits": {
-      "train": "data/train (person-wise folders)",
-      "val": "data/val (person-wise folders)",
-      "test": "data/test_public (individual images)"
+    "labels": {
+        "002e21fa0b4447458004c4ed567c26ed.jpg": 1,
+        "0076b99ba1eb4888a23dc3d0db4d54d1.jpg": 1,
+        "009af27b29494a72a71cee815ba9b986.jpg": 1,
+        "018f9f44d0034ee4bbc27330ca56966f.jpg": 1,
+        "019cc8b63f3b4a17aaadee738600380b.jpg": 1,
+        "019da58b38594aeda5633225526684fe.jpg": 1,
+        "022b7adaa93e44ed8bbfde2a5c2386b7.jpg": 1,
+        "02359a614c264ee59047a7326a8e36e6.jpg": 1,
+        "0354406b674e436e8a39ef8cde1d565b.jpg": 1,
+        "046f5bfa0e9544d9803c5abe574e5409.jpg": 1,
+        "0598bfb6ac204df09f1052207800d3bf.jpg": 1,
+        "06858a213c7043df823bf73c0cdc94fe.jpg": 1,
+        "09c884b0bd8f41d9aa27c1fb3c5a31b7.jpg": 1,
+        "0a0d759c7cfe4588bd14916917df9df6.jpg": 1,
+        "0a81efaf5ab14233a1697da3b14c54fb.jpg": 1,
+        "0aa37e845bfb4c8daf56e2b6dc99fc32.jpg": 1,
+        "0ad0075a942141599bea9677535a3ab8.jpg": 1,
+        "0d354e330d324ad4b7aaffaac9f26cc0.jpg": 1,
+        "0d543c727fd8454f80451e5ff23bad86.jpg": 1,
+        "0d72786aca38415f979135c1cadfd2f6.jpg": 1,
+        "0e166f9e28994b0d8c3aedc7cc384739.jpg": 1,
+        "0e4f9a604cf94895b7eed118b7240990.jpg": 1,
+        "0f932282f4c4415da855e60feee7c3ef.jpg": 1,
+        "0fd1926b3d114fdb9d5e34936756fe36.jpg": 1,
+        "0ff0149de3014e08bf78ebebc1fd63aa.jpg": 1,
+        "10470ae6cd324e11ad9da076d75335df.jpg": 1,
+        "10b45aa7945748deaaab1db2f6cfd973.jpg": 1,
+        "111e1099b69a43a4b48df44e4e07f18a.jpg": 1,
+        "111eb638ea874560b0f55014e7e257dd.jpg": 1,
+        "12633336f9b9456ea2f626a414ea4697.jpg": 1,
+        "1581ce2e47a243b9a2b74a467d30a024.jpg": 1,
+        "15a3aa536d7f41f898e4c43955b80670.jpg": 1,
+        "17730ad6e9bf406d9451a8de6970fd17.jpg": 1,
+        "1796fde7baef45b2b2e467346eaab99c.jpg": 1,
+        "17dc350077fc4a0a91ea0239f92874ea.jpg": 1,
+        "1a2b61956da44e1ebd949221e51a259e.jpg": 1,
+        "1ab815151bd244e6a81a757f163ea3ac.jpg": 1,
+        "1b28dc19f70f4f94ab8d998cc170c608.jpg": 1,
+        "1c6d56a05c6f469eb8bf9ee82b97fd54.jpg": 1,
+        "1e3b2400e45e43469c2b04b488ca0e05.jpg": 1,
+        "1e54c7cac09f47e8908d486ac2ef3982.jpg": 1,
+        "1f91efa089644907894fd64b16dfd118.jpg": 1,
+        "20b15cfb042347e3b0683fd3499c7020.jpg": 1,
+        "21c4e079f39249bd917a19f4003486ed.jpg": 1,
+        "22997f92ca1b43a5bff1cfdf8f92fc9a.jpg": 1,
+        "22e3104df9c84a689890446ecfde7fc4.jpg": 1,
+        "22f1debd398f4c529fe82107c7a06882.jpg": 1,
+        "2323a188bedc439ca6dc2ea26b4020bc.jpg": 1,
+        "23c0be80060e4bc9aa59ca43f022cec5.jpg": 1,
+        "256a570869eb43eca190716abeea6922.jpg": 1,
+        "25cfeeb2c068425fbe7d37db953ced51.jpg": 1,
+        "25ef536a2982409090e6c6971343f998.jpg": 1,
+        "2834024a16ca4799873b0d2cb0b7806c.jpg": 1,
+        "284518f0a3ed4162a7ba95b3de034d69.jpg": 1,
+        "2854258f66c1414d9b2582c1968aeb75.jpg": 1,
+        "2a5838d54c4142c6b0cdd530903bba84.jpg": 1,
+        "2b50b773034348069336429ece94829d.jpg": 1,
+        "2bb9fc60286f4623b9b75ab06a457597.jpg": 1,
+        "2bf8b2d377014fa49203cdd61915f73b.jpg": 1,
+        "2fe408b8fed6466ea2ce0c07b93839f0.jpg": 1,
+        "30212a89d2e34220940ee75c7a5754bf.jpg": 1,
+        "30abf5212de64298872c877991b6b519.jpg": 1,
+        "30ca3e0ae1614bd2b717473e03b973e3.jpg": 1,
+        "318b169099ca4e1ab9157edc94f1271f.jpg": 1,
+        "32340d04c2ac491a8fa4e0fe020f03f7.jpg": 1,
+        "3354a05fa6d84713878c84f1597714d3.jpg": 1,
+        "33d29e96bb224295a9120cdaab2e243a.jpg": 1,
+        "34401c7fea194dfeb85270c546850150.jpg": 1,
+        "3511bbc627d849dfb3fd60dad2e8df8b.jpg": 1,
+        "362e2e2eb93d40cd81ac2eb03d6b342e.jpg": 1,
+        "3757d2a977d84870a0433f25247eab3d.jpg": 1,
+        "3881b27fcce44c349483b9424706d879.jpg": 1,
+        "39054b01c83c4f29a5c84fe8d37a0d57.jpg": 1,
+        "39aba204622e47e48b390bf03777e6bc.jpg": 1,
+        "39e302c607e74f94b468bc69c87d4c4b.jpg": 1,
+        "3cb0322eb7424ecfbe7e68de47fa5482.jpg": 1,
+        "3d02aa3c4e334be29d95576d23f76a28.jpg": 1,
+        "3d7590b0b6fd4f53b92a1204739e5712.jpg": 1,
+        "407423c54c6c4183a036acf5cc97906f.jpg": 1,
+        "411d4437519d49c4807fc349cabec275.jpg": 1,
+        "417162d330714cc8aeb65a5372163eb2.jpg": 1,
+        "42481d3fe78f401f9c729cfb25dde13d.jpg": 1,
+        "4282465667b84339a8e93aa3f552952f.jpg": 1,
+        "436f2ee26fa94d35856ea95350105735.jpg": 1,
+        "43b05bffd4ca4284a1da3072241e1752.jpg": 1,
+        "440753a549bc46ce8c0d07738416c91e.jpg": 1,
+        "442b89abcdbc455f9a55c86bf4a80e78.jpg": 1,
+        "446994717a6a415e9b6c7eabcc3ad88f.jpg": 1,
+        "44e2eba4cf814f39b98dae8ae3bb5886.jpg": 1,
+        "4726c565ecd7444d9f54fe20a54eda05.jpg": 1,
+        "4859c521492240ef8a990c8b8d822f78.jpg": 1,
+        "48733abf3d544d9bacef4307727e765d.jpg": 1,
+        "48923b1fdd6e45cbb7131dcbf00a9d68.jpg": 1,
+        "49bd464ddb8f44058c6b727f1f536d5f.jpg": 1,
+        "49ee44826acb4852a0b6452898e12a8e.jpg": 1,
+        "4a26941ce9ef4b93bb7ce9802a0d8829.jpg": 1,
+        "4bca8aaeee154c7ba1cb7ee2c7b29e13.jpg": 1,
+        "4c5c2da6637a49d9a0d06c260d0495ec.jpg": 1,
+        "4d0ae74a68864dc0b96580a685769412.jpg": 1,
+        "4d9f4ce6dae845b7802c74c5308656a8.jpg": 1,
+        "4f01a0a193f4431a9fd1f673bbdd0031.jpg": 1,
+        "50067feb221a428db0c689a8f22bf3c7.jpg": 1,
+        "500c4eb7d8ea47cbb745c5843008866b.jpg": 1,
+        "50327a7f02fd4790a2dac6084ad19228.jpg": 1,
+        "5055ab848b6e452fbb9fad34f720a596.jpg": 1,
+        "5114a3dcd72b4417a2a05875f114ff0f.jpg": 1,
+        "518fc45d28814e4594405182e757d8f1.jpg": 1,
+        "524f152c4ba14a7e9f9b56e476f62373.jpg": 1,
+        "52ba836e91194c9abafbc9c909245596.jpg": 1,
+        "52deb6148e72412f92b9c33676e7ac0e.jpg": 1,
+        "536b8785466c425a8d8a7c41c00fcf0d.jpg": 1,
+        "53e26868e482406a856108a096c9ff32.jpg": 1,
+        "57d7242ac0c54feab3ae28e7a424c577.jpg": 1,
+        "587277e51c7a48fea4ddf02253b992d7.jpg": 1,
+        "58d3d449909a4fd595f3db2d2a2dedb8.jpg": 1,
+        "59e05d80191d48a3b5a14efb15a9f14a.jpg": 1,
+        "59e0995cd0464e1a9d228310e0cd5f6f.jpg": 1,
+        "59eb3ce0137d4cb2943fc3567a3b0ce6.jpg": 1,
+        "5a6f9b362d7346d5b61e0ae6a5311db7.jpg": 1,
+        "5c9731fdb3994883b9b2646124d78b18.jpg": 1,
+        "5f426a0b012a446789fc4c32bac8a045.jpg": 1,
+        "61ee8dbca9774fe6a3c11720463bf191.jpg": 1,
+        "6261c5d87cbd4f19944f81ce8ef6ed0a.jpg": 1,
+        "628ef26e46af4ca5bce889c607fc11a6.jpg": 1,
+        "634963eb23d34868b16c62f27870ae59.jpg": 1,
+        "64e1c99ff685400dabf7f4be99da18f5.jpg": 1,
+        "66503394b6ae4b49a435d280bc3b23de.jpg": 1,
+        "66fcb3f8d6d04c37a60f859b359a7ee5.jpg": 1,
+        "695133e8782e43f7a3135e662666077a.jpg": 1,
+        "69664252dfc24c3d8396737214259e43.jpg": 1,
+        "6a4f03ecb38d4fab94c7abb4c3d8ecd7.jpg": 1,
+        "6acfd93d35a4482ab99cffa0e1ba9508.jpg": 1,
+        "6b4428fd45fc4b78b9557ee1c0a703b3.jpg": 1,
+        "6b819ea670b5448587bb8e60e01df301.jpg": 1,
+        "6c06be82b92b411288cead7e86a99048.jpg": 1,
+        "6cfeb56a81344524bed12737df8fe120.jpg": 1,
+        "6f098d0ccfb747c2926ebd8b111ecee3.jpg": 1,
+        "6fc7deb3af494e689c1d0d8981b3fc94.jpg": 1,
+        "72ddda0bae0147e39f165893c80496a1.jpg": 1,
+        "733bea669dc64444891a895ac94e6cb2.jpg": 1,
+        "74d7526ca08a44c58971dfcf62e2b372.jpg": 1,
+        "75954b91fdc3489f987100b98c8f7f8e.jpg": 1,
+        "7b3f0f9ebf7e4433a9f44d54a93529e4.jpg": 1,
+        "7b5f23dd0a7e496498d5a463b5cde591.jpg": 1,
+        "7e815d909bc4490e8b74cb78975ca60f.jpg": 1,
+        "7f804fbef2954f3e95c71c67277a16ce.jpg": 1,
+        "7fbe773aecc649728c562165485ef002.jpg": 1,
+        "810377320b6e40eea9c2d6dbfadca29f.jpg": 1,
+        "81e6544a5025462ea30db4cfff7867e5.jpg": 1,
+        "823a123177774c55be77d21709d145f5.jpg": 1,
+        "83728de03b364a3d834be2f88e443e0c.jpg": 1,
+        "854fc6298d8a4e019b2b42bbb4d2b709.jpg": 1,
+        "85a35ad27aa04153a65e22fcb714c520.jpg": 1,
+        "8a2be02c7c7c48538179035675e9ad01.jpg": 1,
+        "8b3bdc69257f4a169fd86a97765f4dfe.jpg": 1,
+        "8b82a1c5a8f14bc588195bf1993da39d.jpg": 1,
+        "8c7735f1d6b242c484514cb9b4d853dd.jpg": 1,
+        "8d4fd2ad51ba4934b87821544ee3177e.jpg": 1,
+        "8dafc9c39c6f4a4b9b2d7bc1d4c5c3a2.jpg": 1,
+        "8de6bafc3a604d7eb8c5fd2519c3a3ee.jpg": 1,
+        "905d4b0eb4744ab491604727c458523a.jpg": 1,
+        "9146a113ba5948f4ae7c327ecb4d3672.jpg": 1,
+        "92ea546ef31d4e6599e8900ea041e7cb.jpg": 1,
+        "93b20f5badf4489aa24c9051d7024933.jpg": 1,
+        "93c810075d2f4b03a5ab60ce1f1a2359.jpg": 1,
+        "93f1566dd13b4531bcaefb6d20d6f1d0.jpg": 1,
+        "94a143e64cd74118be4ba419791f7243.jpg": 1,
+        "955911a47a9045b49f0b8ea717d5a4db.jpg": 1,
+        "95fe77ad08c54c78ba9b266902032ff5.jpg": 1,
+        "973f46508e464b53ab61477a46c7f00a.jpg": 1,
+        "97659ba0aac24a8c8952b011993082d1.jpg": 1,
+        "996871a2fbc74da2aa9089c07a8b7e96.jpg": 1,
+        "99d5a597951f408ea10511731ecd5bb6.jpg": 1,
+        "9ae2e6736e644bc78d37db00071ff378.jpg": 1,
+        "9b35239af4be4f11b11da9bc915a3068.jpg": 1,
+        "9b500a1a3371488ea9ba58b7b3dc2ce6.jpg": 1,
+        "9c644ac11d8f44149c790e566d6b1b0f.jpg": 1,
+        "9dde2d23bded4ca18f90f9f378bf123d.jpg": 1,
+        "9e08d601602147c098ff7007a0d429d8.jpg": 1,
+        "9e3ba41ab6044ae19ba8bf0828fdb54c.jpg": 1,
+        "9e86a64b18fc446aa379407bd65d92e9.jpg": 1,
+        "9f00b53a5a0a40918fb19ce0579aad84.jpg": 1,
+        "9f8e6d640ca24df5ae7cb0e656df6253.jpg": 1,
+        "a0ae21bbf52f474998afb6b3d6f12e9f.jpg": 1,
+        "a170c1f3d3a649f2a30c9aa70117088b.jpg": 1,
+        "a4409ec7262e40cfb0e0ca88c581eaa9.jpg": 1,
+        "a4fb893461d14376aadd6ffa3de5fd51.jpg": 1,
+        "a52caef28b1b4d11a0dc1c086304892c.jpg": 1,
+        "a53aa8947a7045c599ab4e84d7386e14.jpg": 1,
+        "a5ba3d099bbe4b3f92b223b7d3acdcf7.jpg": 1,
+        "a98219908b2e428f8d78feea569b18b7.jpg": 1,
+        "aad0d25586f948c8baecee8c2f594130.jpg": 1,
+        "ab9824c638f64ebd8f7724cc3d133c02.jpg": 1,
+        "ac029bd5dc65428d85f208b65629eb56.jpg": 1,
+        "ad590b9b53314b509df9ec91bb78bc77.jpg": 1,
+        "ad5efbd57a0e44cbb40adc9346047591.jpg": 1,
+        "ae39d8d6d2b74d749943ddcb713d00c7.jpg": 1,
+        "ae54fdb2c4734a048d583d5d3bcf88e0.jpg": 1,
+        "aec33b2d5bd64a5cacaaf1c04fbcb455.jpg": 1,
+        "af1e95c5f59b493283c83ca8651a34bd.jpg": 1,
+        "b088b1cadf254465967106d51de37075.jpg": 1,
+        "b1c652d139d44ff69e59a37f2f7f75d0.jpg": 1,
+        "b228d938540744cda985b564ba298fc1.jpg": 1,
+        "b26d3e1546c141468adafd772c466be1.jpg": 1,
+        "b2f1d5d468c04f6589829754b01a088c.jpg": 1,
+        "b4a18c40a72d4aac91c1436e0d183907.jpg": 1,
+        "b74bfbbf090d447581170779a2f84cd7.jpg": 1,
+        "b7b4a3e0bb814bb59e27c4c0faacb104.jpg": 1,
+        "b7fd5797acf049dbb6788927c9133104.jpg": 1,
+        "b86f1f658b6e4b90aa57c3a5adaf0c2b.jpg": 1,
+        "b94ab4aa5b8c40ffaf3d85024a4b0faf.jpg": 1,
+        "bb066ea14db14403a19e42f921662671.jpg": 1,
+        "bb12c03bcd6f48358eefe9683ec987d4.jpg": 1,
+        "bc69faed082f4412a72b93bf2bdc2f9c.jpg": 1,
+        "c028684417f64dccb316f1292d233448.jpg": 1,
+        "c03ca11eb4ff46f8a70b2aab79ef08c0.jpg": 1,
+        "c300a7d0935c49c8aef740dd1a16fcd3.jpg": 1,
+        "c36adf23a24a4d289e5ae1f060c03f15.jpg": 1,
+        "c3e5aa3eb98b4fca9ce9476b1b82dbca.jpg": 1,
+        "c5a524a6451a45fa9b6d9541298f9aa2.jpg": 1,
+        "c67ad8ff3c0043d18b40b6f15672afb4.jpg": 1,
+        "c89b34c0540d47599ce2aed8e9eadc27.jpg": 1,
+        "c9acb7e8ece641269b2a6d2457a376ca.jpg": 1,
+        "ca69a6e13c604061a0b3f4e14cb14416.jpg": 1,
+        "ca85ba649ae1416eae605770b4831e00.jpg": 1,
+        "cc013650c95d4ebe9280c91d0e8975d9.jpg": 1,
+        "cc75cf5ebec94e4897e4e88b4a5b870d.jpg": 1,
+        "cdc9ba1453794bddadf589e9067be901.jpg": 1,
+        "ce7f774f1b944db582c6023cafa0f28d.jpg": 1,
+        "cebcea0f0ef04ed8bd87344c5ff70c32.jpg": 1,
+        "cf4a57393a6c4b608b227d50c969305e.jpg": 1,
+        "d090fcd8ad6c4cb88b842cdb86b0e932.jpg": 1,
+        "d0ff07eb7d884d9eb4ba3e830a5a56d1.jpg": 1,
+        "d384b3e10470461cade8d3bc9fccfa91.jpg": 1,
+        "d438d5b56b634d0890874fef9305efb0.jpg": 1,
+        "d4b3c8e0c76f4177a1a7a25d005a6133.jpg": 1,
+        "d55d3979eff3466298f5daa901460952.jpg": 1,
+        "d673b5d958464a84a41f1715481621e7.jpg": 1,
+        "d6f80bd041df479ba5d311a0f686c266.jpg": 1,
+        "d74bb7aed6544b7cabe64093456d4d73.jpg": 1,
+        "d763237966a844dcb0c7219c372ee5c6.jpg": 1,
+        "d7cd5d01b1e44ae78fcaccca85830ac8.jpg": 1,
+        "d9b0c0f784f54c98aa4b61f640ffdc21.jpg": 1,
+        "d9cc7042a7374da0ab50870d66aa6ef3.jpg": 1,
+        "d9deaa2681364a9aac0ed43e13aeb3d5.jpg": 1,
+        "da4f7bfe45e04d5782b071a5cbe0592a.jpg": 1,
+        "da5b543154ea42fdbffac285d950e593.jpg": 1,
+        "da7c1e2ade354d5b9ce9532c714128b8.jpg": 1,
+        "dafa90b288674620908efcd1f2168c16.jpg": 1,
+        "df1c0dc8f0654f1db66b9aa1dcabba37.jpg": 1,
+        "e0cf5887164241a0a065f77da13831b1.jpg": 1,
+        "e0d6129f5a5d4b60adc99c591f6b3eab.jpg": 1,
+        "e194b8eb1d84497c939736d0029a0468.jpg": 1,
+        "e1c008f5270d49b7919708f4b4678b71.jpg": 1,
+        "e2de7c2c05ea48ea896356245c39cdbf.jpg": 1,
+        "e444534c986a47589b4e5988c95274e5.jpg": 1,
+        "e49373d5b4924ef69a1eede32c1112b2.jpg": 1,
+        "e554e746b6e444f3b8edc2fa03c6dfdd.jpg": 1,
+        "e57b0d2870c34a13a32d8c4f45aa615d.jpg": 1,
+        "e70ae8558d184ba5b5be726d028584be.jpg": 1,
+        "e90fa26666f74ae3a0991d7edac173c9.jpg": 1,
+        "e93ea73dcfff4b378403c8d1d79cae8b.jpg": 1,
+        "ea7755ead72a42c1bb0662ff598e3c8a.jpg": 1,
+        "eb24003787ce48dc9d2f43167118959b.jpg": 1,
+        "eb8d707226dd4cd194b00cfda9d6f775.jpg": 1,
+        "ebfff964190f4c028016d0cb5d5b7cec.jpg": 1,
+        "ec534872217e4e068f59bdc8e380a602.jpg": 1,
+        "ecfb0956a72c430ca152de083dbc9543.jpg": 1,
+        "edb2c660f6c644ce8847fc3953c77281.jpg": 1,
+        "ee01bd3ed79e47228f05ed561961a7ce.jpg": 1,
+        "ee3970fdd2494be7839bfb27c11ae1b4.jpg": 1,
+        "ee8cfb0e22d04c64bfe5dc56950c8137.jpg": 1,
+        "ee8f87460e1b480c929d3402e9353ef2.jpg": 1,
+        "ef036d68bb7f42dd924b7507579f60ba.jpg": 1,
+        "ef3420b9386f49b797a11e9df5323f94.jpg": 1,
+        "f0aa388f1d1e42b9b1c7cb87ff2150ed.jpg": 1,
+        "f0bf1c8d846748f6b04f2e77be01c1d9.jpg": 1,
+        "f0d5538ad7164d15afd69807644a6cc4.jpg": 1,
+        "f25a1656c3bb4f498ac7b43a93810cfd.jpg": 1,
+        "f298294e7a9241a6acce9232d6380a80.jpg": 1,
+        "f3c7e7b20233408fbc6b266135f89b1b.jpg": 1,
+        "f3d7dff6f4a749ccbe2439fe418a1d3f.jpg": 1,
+        "f4d6dd22804f40d091a3554fdcad7624.jpg": 1,
+        "f5beaa4595034678bdf412e595b69dda.jpg": 1,
+        "f66ad41c908d433da18cab2213eff321.jpg": 1,
+        "f6e6966de3fa40cf9f08c238575abf8f.jpg": 1,
+        "f7d3eceb321d4dc8b7aef3a65a447010.jpg": 1,
+        "f8bbdbf877fa4bbc95b2416cb45fa927.jpg": 1,
+        "f9a1575697ef4293bf5d43c25a89b451.jpg": 1,
+        "fa42ce808423477d95481ccd08c77bd8.jpg": 1,
+        "fa68918f63614f73a279289ceb27da87.jpg": 1,
+        "fb3563f019e04d71857992ebcba6e7fe.jpg": 1,
+        "fb36cdf0b3df44e595d8cf53ea4a95e2.jpg": 1,
+        "fd54be23f3804fe688c00f74f7ed0370.jpg": 1,
+        "fd54e48cc4584687805631b79ac7d4dc.jpg": 1,
+        "fe842ae65d044382bcb16843cc19cea3.jpg": 1,
+        "feb99982a39a446bb66a97bb699c540a.jpg": 1,
+        "fef1562b4b5748c9b7696c486b610b40.jpg": 1,
+        "ff7e10e74aa14e99a41e2ea2baf35786.jpg": 1,
+        "ff8afdec7d334df1b4a7923d15565c58.jpg": 1
     },
-    "preprocessing": {
-      "train": [
-        "RandomResizedCrop(224)",
-        "RandomHorizontalFlip(p=0.5)",
-        "ColorJitter",
-        "Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])"
-      ],
-      "validation": [
-        "Resize(256)",
-        "CenterCrop(224)",
-        "ToTensor",
-        "Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])"
-      ]
+    "predictions": {
+        "002e21fa0b4447458004c4ed567c26ed.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.978968620300293
+        },
+        "0076b99ba1eb4888a23dc3d0db4d54d1.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.9125521183013916
+        },
+        "009af27b29494a72a71cee815ba9b986.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.941246747970581
+        },
+        "018f9f44d0034ee4bbc27330ca56966f.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9772080183029175
+        },
+        "019cc8b63f3b4a17aaadee738600380b.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.9275960326194763
+        },
+        "019da58b38594aeda5633225526684fe.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9290674924850464
+        },
+        "022b7adaa93e44ed8bbfde2a5c2386b7.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.8867138624191284
+        },
+        "02359a614c264ee59047a7326a8e36e6.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9743604063987732
+        },
+        "0354406b674e436e8a39ef8cde1d565b.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9693014621734619
+        },
+        "046f5bfa0e9544d9803c5abe574e5409.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9099364280700684
+        },
+        "0598bfb6ac204df09f1052207800d3bf.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.8898700475692749
+        },
+        "06858a213c7043df823bf73c0cdc94fe.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9361363053321838
+        },
+        "09c884b0bd8f41d9aa27c1fb3c5a31b7.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9609564542770386
+        },
+        "0a0d759c7cfe4588bd14916917df9df6.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9170020222663879
+        },
+        "0a81efaf5ab14233a1697da3b14c54fb.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.817835807800293
+        },
+        "0aa37e845bfb4c8daf56e2b6dc99fc32.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9631628394126892
+        },
+        "0ad0075a942141599bea9677535a3ab8.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.8576635718345642
+        },
+        "0d354e330d324ad4b7aaffaac9f26cc0.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9435068964958191
+        },
+        "0d543c727fd8454f80451e5ff23bad86.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.7865396738052368
+        },
+        "0d72786aca38415f979135c1cadfd2f6.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.6675290465354919
+        },
+        "0e166f9e28994b0d8c3aedc7cc384739.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9684622287750244
+        },
+        "0e4f9a604cf94895b7eed118b7240990.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9569929838180542
+        },
+        "0f932282f4c4415da855e60feee7c3ef.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9377725124359131
+        },
+        "0fd1926b3d114fdb9d5e34936756fe36.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9677574634552002
+        },
+        "0ff0149de3014e08bf78ebebc1fd63aa.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.7424951195716858
+        },
+        "10470ae6cd324e11ad9da076d75335df.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.9444601535797119
+        },
+        "10b45aa7945748deaaab1db2f6cfd973.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9421032667160034
+        },
+        "111e1099b69a43a4b48df44e4e07f18a.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.8568129539489746
+        },
+        "111eb638ea874560b0f55014e7e257dd.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9616433382034302
+        },
+        "12633336f9b9456ea2f626a414ea4697.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.8535550236701965
+        },
+        "1581ce2e47a243b9a2b74a467d30a024.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9702630043029785
+        },
+        "15a3aa536d7f41f898e4c43955b80670.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.9818986058235168
+        },
+        "17730ad6e9bf406d9451a8de6970fd17.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.9831905364990234
+        },
+        "1796fde7baef45b2b2e467346eaab99c.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.961410403251648
+        },
+        "17dc350077fc4a0a91ea0239f92874ea.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.959536075592041
+        },
+        "1a2b61956da44e1ebd949221e51a259e.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9405674934387207
+        },
+        "1ab815151bd244e6a81a757f163ea3ac.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9173369407653809
+        },
+        "1b28dc19f70f4f94ab8d998cc170c608.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9739360809326172
+        },
+        "1c6d56a05c6f469eb8bf9ee82b97fd54.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.877859890460968
+        },
+        "1e3b2400e45e43469c2b04b488ca0e05.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9658068418502808
+        },
+        "1e54c7cac09f47e8908d486ac2ef3982.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.933843731880188
+        },
+        "1f91efa089644907894fd64b16dfd118.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9351295232772827
+        },
+        "20b15cfb042347e3b0683fd3499c7020.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.964733362197876
+        },
+        "21c4e079f39249bd917a19f4003486ed.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.7699326276779175
+        },
+        "22997f92ca1b43a5bff1cfdf8f92fc9a.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.9465314745903015
+        },
+        "22e3104df9c84a689890446ecfde7fc4.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9764399528503418
+        },
+        "22f1debd398f4c529fe82107c7a06882.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9700215458869934
+        },
+        "2323a188bedc439ca6dc2ea26b4020bc.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.684528112411499
+        },
+        "23c0be80060e4bc9aa59ca43f022cec5.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9499781727790833
+        },
+        "256a570869eb43eca190716abeea6922.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.9377267956733704
+        },
+        "25cfeeb2c068425fbe7d37db953ced51.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9716542363166809
+        },
+        "25ef536a2982409090e6c6971343f998.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.9627166390419006
+        },
+        "2834024a16ca4799873b0d2cb0b7806c.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.8037945032119751
+        },
+        "284518f0a3ed4162a7ba95b3de034d69.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.8997578620910645
+        },
+        "2854258f66c1414d9b2582c1968aeb75.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.9067286849021912
+        },
+        "2a5838d54c4142c6b0cdd530903bba84.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.9082620143890381
+        },
+        "2b50b773034348069336429ece94829d.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9156324863433838
+        },
+        "2bb9fc60286f4623b9b75ab06a457597.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.8983567953109741
+        },
+        "2bf8b2d377014fa49203cdd61915f73b.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9396498203277588
+        },
+        "2fe408b8fed6466ea2ce0c07b93839f0.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9338588714599609
+        },
+        "30212a89d2e34220940ee75c7a5754bf.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9740006923675537
+        },
+        "30abf5212de64298872c877991b6b519.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.9328318238258362
+        },
+        "30ca3e0ae1614bd2b717473e03b973e3.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.8904973268508911
+        },
+        "318b169099ca4e1ab9157edc94f1271f.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9708715677261353
+        },
+        "32340d04c2ac491a8fa4e0fe020f03f7.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9308114051818848
+        },
+        "3354a05fa6d84713878c84f1597714d3.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.9565561413764954
+        },
+        "33d29e96bb224295a9120cdaab2e243a.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9205878973007202
+        },
+        "34401c7fea194dfeb85270c546850150.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.823255181312561
+        },
+        "3511bbc627d849dfb3fd60dad2e8df8b.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9523643255233765
+        },
+        "362e2e2eb93d40cd81ac2eb03d6b342e.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9692884087562561
+        },
+        "3757d2a977d84870a0433f25247eab3d.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.8159123659133911
+        },
+        "3881b27fcce44c349483b9424706d879.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.948112964630127
+        },
+        "39054b01c83c4f29a5c84fe8d37a0d57.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.963166356086731
+        },
+        "39aba204622e47e48b390bf03777e6bc.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.9625137448310852
+        },
+        "39e302c607e74f94b468bc69c87d4c4b.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.974395751953125
+        },
+        "3cb0322eb7424ecfbe7e68de47fa5482.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.9660791754722595
+        },
+        "3d02aa3c4e334be29d95576d23f76a28.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.8674867749214172
+        },
+        "3d7590b0b6fd4f53b92a1204739e5712.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.7974156141281128
+        },
+        "407423c54c6c4183a036acf5cc97906f.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.8286834359169006
+        },
+        "411d4437519d49c4807fc349cabec275.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.8972950577735901
+        },
+        "417162d330714cc8aeb65a5372163eb2.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9479918479919434
+        },
+        "42481d3fe78f401f9c729cfb25dde13d.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9730491638183594
+        },
+        "4282465667b84339a8e93aa3f552952f.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9325412511825562
+        },
+        "436f2ee26fa94d35856ea95350105735.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.7790523767471313
+        },
+        "43b05bffd4ca4284a1da3072241e1752.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.9763580560684204
+        },
+        "440753a549bc46ce8c0d07738416c91e.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9807765483856201
+        },
+        "442b89abcdbc455f9a55c86bf4a80e78.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.8043695688247681
+        },
+        "446994717a6a415e9b6c7eabcc3ad88f.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9644646644592285
+        },
+        "44e2eba4cf814f39b98dae8ae3bb5886.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9423290491104126
+        },
+        "4726c565ecd7444d9f54fe20a54eda05.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.6739668250083923
+        },
+        "4859c521492240ef8a990c8b8d822f78.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.8891394734382629
+        },
+        "48733abf3d544d9bacef4307727e765d.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.974638044834137
+        },
+        "48923b1fdd6e45cbb7131dcbf00a9d68.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9610024690628052
+        },
+        "49bd464ddb8f44058c6b727f1f536d5f.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.8974044322967529
+        },
+        "49ee44826acb4852a0b6452898e12a8e.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.6928374171257019
+        },
+        "4a26941ce9ef4b93bb7ce9802a0d8829.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.7792487144470215
+        },
+        "4bca8aaeee154c7ba1cb7ee2c7b29e13.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.8391492366790771
+        },
+        "4c5c2da6637a49d9a0d06c260d0495ec.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.9598028659820557
+        },
+        "4d0ae74a68864dc0b96580a685769412.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.9349292516708374
+        },
+        "4d9f4ce6dae845b7802c74c5308656a8.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9461846947669983
+        },
+        "4f01a0a193f4431a9fd1f673bbdd0031.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9540879130363464
+        },
+        "50067feb221a428db0c689a8f22bf3c7.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.928740382194519
+        },
+        "500c4eb7d8ea47cbb745c5843008866b.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9546592235565186
+        },
+        "50327a7f02fd4790a2dac6084ad19228.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9777267575263977
+        },
+        "5055ab848b6e452fbb9fad34f720a596.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.8662110567092896
+        },
+        "5114a3dcd72b4417a2a05875f114ff0f.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.7963689565658569
+        },
+        "518fc45d28814e4594405182e757d8f1.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9259024858474731
+        },
+        "524f152c4ba14a7e9f9b56e476f62373.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9577223062515259
+        },
+        "52ba836e91194c9abafbc9c909245596.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9560980796813965
+        },
+        "52deb6148e72412f92b9c33676e7ac0e.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9135291576385498
+        },
+        "536b8785466c425a8d8a7c41c00fcf0d.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9309238195419312
+        },
+        "53e26868e482406a856108a096c9ff32.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9456387758255005
+        },
+        "57d7242ac0c54feab3ae28e7a424c577.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.988935649394989
+        },
+        "587277e51c7a48fea4ddf02253b992d7.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9504033327102661
+        },
+        "58d3d449909a4fd595f3db2d2a2dedb8.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.9566341638565063
+        },
+        "59e05d80191d48a3b5a14efb15a9f14a.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9164936542510986
+        },
+        "59e0995cd0464e1a9d228310e0cd5f6f.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9176924824714661
+        },
+        "59eb3ce0137d4cb2943fc3567a3b0ce6.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9296706914901733
+        },
+        "5a6f9b362d7346d5b61e0ae6a5311db7.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.7371505498886108
+        },
+        "5c9731fdb3994883b9b2646124d78b18.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9642753005027771
+        },
+        "5f426a0b012a446789fc4c32bac8a045.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9814528226852417
+        },
+        "61ee8dbca9774fe6a3c11720463bf191.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9495738744735718
+        },
+        "6261c5d87cbd4f19944f81ce8ef6ed0a.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9416219592094421
+        },
+        "628ef26e46af4ca5bce889c607fc11a6.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9563870429992676
+        },
+        "634963eb23d34868b16c62f27870ae59.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.9758002161979675
+        },
+        "64e1c99ff685400dabf7f4be99da18f5.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.9846962094306946
+        },
+        "66503394b6ae4b49a435d280bc3b23de.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9587057828903198
+        },
+        "66fcb3f8d6d04c37a60f859b359a7ee5.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.7723626494407654
+        },
+        "695133e8782e43f7a3135e662666077a.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.8922497034072876
+        },
+        "69664252dfc24c3d8396737214259e43.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9804685115814209
+        },
+        "6a4f03ecb38d4fab94c7abb4c3d8ecd7.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.9124792814254761
+        },
+        "6acfd93d35a4482ab99cffa0e1ba9508.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9808393716812134
+        },
+        "6b4428fd45fc4b78b9557ee1c0a703b3.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9022837281227112
+        },
+        "6b819ea670b5448587bb8e60e01df301.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9883202910423279
+        },
+        "6c06be82b92b411288cead7e86a99048.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9018406867980957
+        },
+        "6cfeb56a81344524bed12737df8fe120.jpg": {
+            "class_idx": 23,
+            "class_name": "natalie_portman",
+            "confidence": 0.9842133522033691
+        },
+        "6f098d0ccfb747c2926ebd8b111ecee3.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9276342391967773
+        },
+        "6fc7deb3af494e689c1d0d8981b3fc94.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.8992919921875
+        },
+        "72ddda0bae0147e39f165893c80496a1.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.9087555408477783
+        },
+        "733bea669dc64444891a895ac94e6cb2.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9799809455871582
+        },
+        "74d7526ca08a44c58971dfcf62e2b372.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.6761091351509094
+        },
+        "75954b91fdc3489f987100b98c8f7f8e.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9805890917778015
+        },
+        "7b3f0f9ebf7e4433a9f44d54a93529e4.jpg": {
+            "class_idx": 23,
+            "class_name": "natalie_portman",
+            "confidence": 0.9800803661346436
+        },
+        "7b5f23dd0a7e496498d5a463b5cde591.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9279778599739075
+        },
+        "7e815d909bc4490e8b74cb78975ca60f.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.8494723439216614
+        },
+        "7f804fbef2954f3e95c71c67277a16ce.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9485939741134644
+        },
+        "7fbe773aecc649728c562165485ef002.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9107767939567566
+        },
+        "810377320b6e40eea9c2d6dbfadca29f.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.9249427318572998
+        },
+        "81e6544a5025462ea30db4cfff7867e5.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9796450138092041
+        },
+        "823a123177774c55be77d21709d145f5.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.653896152973175
+        },
+        "83728de03b364a3d834be2f88e443e0c.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9506392478942871
+        },
+        "854fc6298d8a4e019b2b42bbb4d2b709.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9765793085098267
+        },
+        "85a35ad27aa04153a65e22fcb714c520.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9795365333557129
+        },
+        "8a2be02c7c7c48538179035675e9ad01.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9404233694076538
+        },
+        "8b3bdc69257f4a169fd86a97765f4dfe.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9733507037162781
+        },
+        "8b82a1c5a8f14bc588195bf1993da39d.jpg": {
+            "class_idx": 11,
+            "class_name": "courtney_cox",
+            "confidence": 0.8314476609230042
+        },
+        "8c7735f1d6b242c484514cb9b4d853dd.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.952431321144104
+        },
+        "8d4fd2ad51ba4934b87821544ee3177e.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9665238857269287
+        },
+        "8dafc9c39c6f4a4b9b2d7bc1d4c5c3a2.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9556174278259277
+        },
+        "8de6bafc3a604d7eb8c5fd2519c3a3ee.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9364882707595825
+        },
+        "905d4b0eb4744ab491604727c458523a.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.8887611031532288
+        },
+        "9146a113ba5948f4ae7c327ecb4d3672.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.8454868793487549
+        },
+        "92ea546ef31d4e6599e8900ea041e7cb.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.9898508787155151
+        },
+        "93b20f5badf4489aa24c9051d7024933.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.976315975189209
+        },
+        "93c810075d2f4b03a5ab60ce1f1a2359.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9738045930862427
+        },
+        "93f1566dd13b4531bcaefb6d20d6f1d0.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9217872023582458
+        },
+        "94a143e64cd74118be4ba419791f7243.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.8335350751876831
+        },
+        "955911a47a9045b49f0b8ea717d5a4db.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.9419886469841003
+        },
+        "95fe77ad08c54c78ba9b266902032ff5.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.8761985301971436
+        },
+        "973f46508e464b53ab61477a46c7f00a.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9561213254928589
+        },
+        "97659ba0aac24a8c8952b011993082d1.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9041717052459717
+        },
+        "996871a2fbc74da2aa9089c07a8b7e96.jpg": {
+            "class_idx": 11,
+            "class_name": "courtney_cox",
+            "confidence": 0.7463719248771667
+        },
+        "99d5a597951f408ea10511731ecd5bb6.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9661843776702881
+        },
+        "9ae2e6736e644bc78d37db00071ff378.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.8108027577400208
+        },
+        "9b35239af4be4f11b11da9bc915a3068.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.9109821319580078
+        },
+        "9b500a1a3371488ea9ba58b7b3dc2ce6.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.8544571399688721
+        },
+        "9c644ac11d8f44149c790e566d6b1b0f.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9603709578514099
+        },
+        "9dde2d23bded4ca18f90f9f378bf123d.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.7147253751754761
+        },
+        "9e08d601602147c098ff7007a0d429d8.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.9134484529495239
+        },
+        "9e3ba41ab6044ae19ba8bf0828fdb54c.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9590983390808105
+        },
+        "9e86a64b18fc446aa379407bd65d92e9.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.955913245677948
+        },
+        "9f00b53a5a0a40918fb19ce0579aad84.jpg": {
+            "class_idx": 17,
+            "class_name": "hugh_jackman",
+            "confidence": 0.9527962803840637
+        },
+        "9f8e6d640ca24df5ae7cb0e656df6253.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9461095333099365
+        },
+        "a0ae21bbf52f474998afb6b3d6f12e9f.jpg": {
+            "class_idx": 3,
+            "class_name": "amitabh_bachchan",
+            "confidence": 0.9831799864768982
+        },
+        "a170c1f3d3a649f2a30c9aa70117088b.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9504145383834839
+        },
+        "a4409ec7262e40cfb0e0ca88c581eaa9.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.8984208106994629
+        },
+        "a4fb893461d14376aadd6ffa3de5fd51.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9651744365692139
+        },
+        "a52caef28b1b4d11a0dc1c086304892c.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9734292030334473
+        },
+        "a53aa8947a7045c599ab4e84d7386e14.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.943065881729126
+        },
+        "a5ba3d099bbe4b3f92b223b7d3acdcf7.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9638188481330872
+        },
+        "a98219908b2e428f8d78feea569b18b7.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9538202285766602
+        },
+        "aad0d25586f948c8baecee8c2f594130.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9308005571365356
+        },
+        "ab9824c638f64ebd8f7724cc3d133c02.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9736178517341614
+        },
+        "ac029bd5dc65428d85f208b65629eb56.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.7274216413497925
+        },
+        "ad590b9b53314b509df9ec91bb78bc77.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9651123285293579
+        },
+        "ad5efbd57a0e44cbb40adc9346047591.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9346522688865662
+        },
+        "ae39d8d6d2b74d749943ddcb713d00c7.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.8990449905395508
+        },
+        "ae54fdb2c4734a048d583d5d3bcf88e0.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.8468438386917114
+        },
+        "aec33b2d5bd64a5cacaaf1c04fbcb455.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.8724914789199829
+        },
+        "af1e95c5f59b493283c83ca8651a34bd.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.7715088129043579
+        },
+        "b088b1cadf254465967106d51de37075.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.900317907333374
+        },
+        "b1c652d139d44ff69e59a37f2f7f75d0.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9527226686477661
+        },
+        "b228d938540744cda985b564ba298fc1.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9768769145011902
+        },
+        "b26d3e1546c141468adafd772c466be1.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9174429178237915
+        },
+        "b2f1d5d468c04f6589829754b01a088c.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.9588837623596191
+        },
+        "b4a18c40a72d4aac91c1436e0d183907.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.9503226280212402
+        },
+        "b74bfbbf090d447581170779a2f84cd7.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.8868286609649658
+        },
+        "b7b4a3e0bb814bb59e27c4c0faacb104.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9503003358840942
+        },
+        "b7fd5797acf049dbb6788927c9133104.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.8951089382171631
+        },
+        "b86f1f658b6e4b90aa57c3a5adaf0c2b.jpg": {
+            "class_idx": 0,
+            "class_name": "akshay_kumar",
+            "confidence": 0.977606475353241
+        },
+        "b94ab4aa5b8c40ffaf3d85024a4b0faf.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.8630589842796326
+        },
+        "bb066ea14db14403a19e42f921662671.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9625747799873352
+        },
+        "bb12c03bcd6f48358eefe9683ec987d4.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.8585186004638672
+        },
+        "bc69faed082f4412a72b93bf2bdc2f9c.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.9558767676353455
+        },
+        "c028684417f64dccb316f1292d233448.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9807634353637695
+        },
+        "c03ca11eb4ff46f8a70b2aab79ef08c0.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.8003512620925903
+        },
+        "c300a7d0935c49c8aef740dd1a16fcd3.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9550213813781738
+        },
+        "c36adf23a24a4d289e5ae1f060c03f15.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.950954794883728
+        },
+        "c3e5aa3eb98b4fca9ce9476b1b82dbca.jpg": {
+            "class_idx": 13,
+            "class_name": "elizabeth_olsen",
+            "confidence": 0.7110840082168579
+        },
+        "c5a524a6451a45fa9b6d9541298f9aa2.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.9423109889030457
+        },
+        "c67ad8ff3c0043d18b40b6f15672afb4.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.9267226457595825
+        },
+        "c89b34c0540d47599ce2aed8e9eadc27.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.9455456733703613
+        },
+        "c9acb7e8ece641269b2a6d2457a376ca.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9631595611572266
+        },
+        "ca69a6e13c604061a0b3f4e14cb14416.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9435393810272217
+        },
+        "ca85ba649ae1416eae605770b4831e00.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9805324673652649
+        },
+        "cc013650c95d4ebe9280c91d0e8975d9.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9524191617965698
+        },
+        "cc75cf5ebec94e4897e4e88b4a5b870d.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.962594211101532
+        },
+        "cdc9ba1453794bddadf589e9067be901.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.9336080551147461
+        },
+        "ce7f774f1b944db582c6023cafa0f28d.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.9240258932113647
+        },
+        "cebcea0f0ef04ed8bd87344c5ff70c32.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.9422107934951782
+        },
+        "cf4a57393a6c4b608b227d50c969305e.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.8471459746360779
+        },
+        "d090fcd8ad6c4cb88b842cdb86b0e932.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.9380502700805664
+        },
+        "d0ff07eb7d884d9eb4ba3e830a5a56d1.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.6869184970855713
+        },
+        "d384b3e10470461cade8d3bc9fccfa91.jpg": {
+            "class_idx": 19,
+            "class_name": "kashyap",
+            "confidence": 0.9280376434326172
+        },
+        "d438d5b56b634d0890874fef9305efb0.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9297534227371216
+        },
+        "d4b3c8e0c76f4177a1a7a25d005a6133.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9645382165908813
+        },
+        "d55d3979eff3466298f5daa901460952.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.9461126327514648
+        },
+        "d673b5d958464a84a41f1715481621e7.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9034740924835205
+        },
+        "d6f80bd041df479ba5d311a0f686c266.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9661780595779419
+        },
+        "d74bb7aed6544b7cabe64093456d4d73.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.9382944107055664
+        },
+        "d763237966a844dcb0c7219c372ee5c6.jpg": {
+            "class_idx": 22,
+            "class_name": "marmik",
+            "confidence": 0.8684900999069214
+        },
+        "d7cd5d01b1e44ae78fcaccca85830ac8.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.6602854132652283
+        },
+        "d9b0c0f784f54c98aa4b61f640ffdc21.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.928518533706665
+        },
+        "d9cc7042a7374da0ab50870d66aa6ef3.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.975226104259491
+        },
+        "d9deaa2681364a9aac0ed43e13aeb3d5.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9222549200057983
+        },
+        "da4f7bfe45e04d5782b071a5cbe0592a.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9685307741165161
+        },
+        "da5b543154ea42fdbffac285d950e593.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9792252779006958
+        },
+        "da7c1e2ade354d5b9ce9532c714128b8.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9422951936721802
+        },
+        "dafa90b288674620908efcd1f2168c16.jpg": {
+            "class_idx": 20,
+            "class_name": "lisa_kudrow",
+            "confidence": 0.9584866762161255
+        },
+        "df1c0dc8f0654f1db66b9aa1dcabba37.jpg": {
+            "class_idx": 6,
+            "class_name": "billie_eilish",
+            "confidence": 0.9789568185806274
+        },
+        "e0cf5887164241a0a065f77da13831b1.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9604966640472412
+        },
+        "e0d6129f5a5d4b60adc99c591f6b3eab.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9163373112678528
+        },
+        "e194b8eb1d84497c939736d0029a0468.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9425684213638306
+        },
+        "e1c008f5270d49b7919708f4b4678b71.jpg": {
+            "class_idx": 27,
+            "class_name": "tom_cruise",
+            "confidence": 0.9245548248291016
+        },
+        "e2de7c2c05ea48ea896356245c39cdbf.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9702168107032776
+        },
+        "e444534c986a47589b4e5988c95274e5.jpg": {
+            "class_idx": 7,
+            "class_name": "brad_pitt",
+            "confidence": 0.9188849925994873
+        },
+        "e49373d5b4924ef69a1eede32c1112b2.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.9300253391265869
+        },
+        "e554e746b6e444f3b8edc2fa03c6dfdd.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9734668135643005
+        },
+        "e57b0d2870c34a13a32d8c4f45aa615d.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9388890266418457
+        },
+        "e70ae8558d184ba5b5be726d028584be.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9647034406661987
+        },
+        "e90fa26666f74ae3a0991d7edac173c9.jpg": {
+            "class_idx": 1,
+            "class_name": "alexandra_daddario",
+            "confidence": 0.9535516500473022
+        },
+        "e93ea73dcfff4b378403c8d1d79cae8b.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9361261129379272
+        },
+        "ea7755ead72a42c1bb0662ff598e3c8a.jpg": {
+            "class_idx": 24,
+            "class_name": "priyanka_chopra",
+            "confidence": 0.9602307081222534
+        },
+        "eb24003787ce48dc9d2f43167118959b.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9767999053001404
+        },
+        "eb8d707226dd4cd194b00cfda9d6f775.jpg": {
+            "class_idx": 21,
+            "class_name": "margot_robbie",
+            "confidence": 0.9428722858428955
+        },
+        "ebfff964190f4c028016d0cb5d5b7cec.jpg": {
+            "class_idx": 26,
+            "class_name": "roger_federer",
+            "confidence": 0.9610183238983154
+        },
+        "ec534872217e4e068f59bdc8e380a602.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9719401001930237
+        },
+        "ecfb0956a72c430ca152de083dbc9543.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9445183277130127
+        },
+        "edb2c660f6c644ce8847fc3953c77281.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.8560327291488647
+        },
+        "ee01bd3ed79e47228f05ed561961a7ce.jpg": {
+            "class_idx": 28,
+            "class_name": "vijay_deverakonda",
+            "confidence": 0.9554056525230408
+        },
+        "ee3970fdd2494be7839bfb27c11ae1b4.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9060302972793579
+        },
+        "ee8cfb0e22d04c64bfe5dc56950c8137.jpg": {
+            "class_idx": 16,
+            "class_name": "hrithik_roshan",
+            "confidence": 0.9569379091262817
+        },
+        "ee8f87460e1b480c929d3402e9353ef2.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.6604017019271851
+        },
+        "ef036d68bb7f42dd924b7507579f60ba.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9209187030792236
+        },
+        "ef3420b9386f49b797a11e9df5323f94.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.8862836360931396
+        },
+        "f0aa388f1d1e42b9b1c7cb87ff2150ed.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9692447185516357
+        },
+        "f0bf1c8d846748f6b04f2e77be01c1d9.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9686743021011353
+        },
+        "f0d5538ad7164d15afd69807644a6cc4.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9584161639213562
+        },
+        "f25a1656c3bb4f498ac7b43a93810cfd.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.9647109508514404
+        },
+        "f298294e7a9241a6acce9232d6380a80.jpg": {
+            "class_idx": 14,
+            "class_name": "ellen_degeneres",
+            "confidence": 0.9427171945571899
+        },
+        "f3c7e7b20233408fbc6b266135f89b1b.jpg": {
+            "class_idx": 4,
+            "class_name": "andy_samberg",
+            "confidence": 0.9836859703063965
+        },
+        "f3d7dff6f4a749ccbe2439fe418a1d3f.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9617444276809692
+        },
+        "f4d6dd22804f40d091a3554fdcad7624.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.7331221699714661
+        },
+        "f5beaa4595034678bdf412e595b69dda.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.8302124738693237
+        },
+        "f66ad41c908d433da18cab2213eff321.jpg": {
+            "class_idx": 9,
+            "class_name": "charlize_theron",
+            "confidence": 0.9008232355117798
+        },
+        "f6e6966de3fa40cf9f08c238575abf8f.jpg": {
+            "class_idx": 29,
+            "class_name": "virat_kohli",
+            "confidence": 0.9830764532089233
+        },
+        "f7d3eceb321d4dc8b7aef3a65a447010.jpg": {
+            "class_idx": 12,
+            "class_name": "dwayne_johnson",
+            "confidence": 0.7859482169151306
+        },
+        "f8bbdbf877fa4bbc95b2416cb45fa927.jpg": {
+            "class_idx": 5,
+            "class_name": "anushka_sharma",
+            "confidence": 0.960599422454834
+        },
+        "f9a1575697ef4293bf5d43c25a89b451.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9444941282272339
+        },
+        "fa42ce808423477d95481ccd08c77bd8.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.8662556409835815
+        },
+        "fa68918f63614f73a279289ceb27da87.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9725012183189392
+        },
+        "fb3563f019e04d71857992ebcba6e7fe.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.9690035581588745
+        },
+        "fb36cdf0b3df44e595d8cf53ea4a95e2.jpg": {
+            "class_idx": 25,
+            "class_name": "robert_downey_jr",
+            "confidence": 0.8786299228668213
+        },
+        "fd54be23f3804fe688c00f74f7ed0370.jpg": {
+            "class_idx": 18,
+            "class_name": "jessica_alba",
+            "confidence": 0.9443736672401428
+        },
+        "fd54e48cc4584687805631b79ac7d4dc.jpg": {
+            "class_idx": 2,
+            "class_name": "alia_bhatt",
+            "confidence": 0.8066449165344238
+        },
+        "fe842ae65d044382bcb16843cc19cea3.jpg": {
+            "class_idx": 30,
+            "class_name": "zac_efron",
+            "confidence": 0.6550345420837402
+        },
+        "feb99982a39a446bb66a97bb699c540a.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.8241318464279175
+        },
+        "fef1562b4b5748c9b7696c486b610b40.jpg": {
+            "class_idx": 15,
+            "class_name": "henry_cavill",
+            "confidence": 0.673688530921936
+        },
+        "ff7e10e74aa14e99a41e2ea2baf35786.jpg": {
+            "class_idx": 10,
+            "class_name": "claire_holt",
+            "confidence": 0.9412522315979004
+        },
+        "ff8afdec7d334df1b4a7923d15565c58.jpg": {
+            "class_idx": 8,
+            "class_name": "camila_cabello",
+            "confidence": 0.8822612166404724
+        }
     }
-  },
-  "model_architecture": {
-    "base_model": "ResNet50",
-    "embedding_size": 512,
-    "classifier": {
-      "type": "Linear layer",
-      "input_features": 512,
-      "output_features": 31,
-      "bias": true
-    },
-    "features": {
-      "backbone": "Pre-trained ResNet50 (frozen)",
-      "embedding_layer": "Linear(2048, 512) + BatchNorm1d + ReLU",
-      "output": "Linear(512, num_classes)",
-      "dropout": 0.5
-    },
-    "loss_function": "CrossEntropyLoss with label_smoothing=0.1"
-  },
-  "training_configuration": {
-    "optimizer": "AdamW",
-    "learning_rate": 0.001,
-    "batch_size": 32,
-    "epochs": 50,
-    "scheduler": {
-      "name": "cosine",
-      "warmup_epochs": 5,
-      "min_lr": 1e-6
-    },
-    "weight_decay": 0.0001,
-    "label_smoothing": 0.1,
-    "mixed_precision": true,
-    "early_stopping": {
-      "patience": 10,
-      "min_delta": 1e-4
-    },
-    "class_weights": true,
-    "weighted_sampler": true,
-    "device": "CUDA (GPU) if available, else CPU"
-  },
-  "data_augmentation": {
-    "train": [
-      "RandomResizedCrop",
-      "RandomHorizontalFlip",
-      "ColorJitter",
-      "Normalization"
-    ],
-    "validation": [
-      "Resize",
-      "CenterCrop",
-      "ToTensor",
-      "Normalization"
-    ]
-  },
-  "evaluation_metrics": {
-    "primary_metric": "Accuracy",
-    "validation_frequency": "Per epoch",
-    "checkpointing": {
-      "save_dir": "checkpoints/",
-      "save_frequency": "Every epoch",
-      "keep_best": true,
-      "save_latest": true
-    },
-    "tensorboard_logging": true
-  },
-  "inference": {
-    "input": "Single image or batch of images (224x224, RGB)",
-    "preprocessing": [
-      "Resize to 256x256",
-      "Center crop to 224x224",
-      "Normalize using ImageNet stats"
-    ],
-    "output": {
-      "class_id": "Predicted class index (0-30)",
-      "class_name": "Predicted person's name (from class_index.json)",
-      "confidence": "Similarity score (0-1)"
-    },
-    "centroid_based": true,
-    "centroids_file": "checkpoints/centroids.pth"
-  },
-  "deployment": {
-    "docker_support": true,
-    "model_format": "PyTorch checkpoint (.pth)",
-    "required_files": [
-      "checkpoints/best.pth (model weights)",
-      "checkpoints/centroids.pth (class centroids)",
-      "dataset/meta/class_index.json (class name mapping)"
-    ]
-  },
-  "project_structure": {
-    "src/": {
-      "train.py": "Main training script with training loop",
-      "infer.py": "Inference script for making predictions",
-      "model.py": "ResNet-based model definition with custom embedding",
-      "dataset.py": "Data loading and preprocessing pipelines",
-      "visualizations.py": "Visualization utilities (t-SNE, confusion matrix, sample predictions)",
-      "compute_centroids.py": "Script to compute class centroids from embeddings"
-    },
-    "data/": {
-      "train/": "Training images organized in person-wise subfolders",
-      "val/": "Validation images organized in person-wise subfolders",
-      "test_public/": "Test images for inference"
-    },
-    "checkpoints/": {
-      "best.pth": "Best performing model weights",
-      "centroids.pth": "Pre-computed class centroids for inference"
-    },
-    "visualizations/": "Generated plots and visualizations",
-    "config.yaml": "Main configuration file with all hyperparameters",
-    "requirements.txt": "Python dependencies"
-  },
-  "training_output": {
-    "best_model": "checkpoints/best.pth",
-    "centroids": "checkpoints/centroids.pth",
-    "logs": "outputs/logs",
-    "tensorboard": "outputs/tensorboard",
-    "submission": "submission.json (sample predictions on test set)",
-    "visualizations": {
-      "sample_predictions": "visualizations/sample_predictions.png",
-      "tsne_embeddings": "visualizations/tsne_embeddings.png",
-      "confusion_matrix": "visualizations/confusion_matrix.png"
-    }
-  },
-  "real_time_features": {
-    "video_inference": {
-      "input_source": "Webcam or video file",
-      "face_detection": "Haar Cascade Classifier",
-      "frame_processing": "Real-time with OpenCV",
-      "display": {
-        "bounding_box": true,
-        "class_labels": true,
-        "confidence_scores": true,
-        "fps_counter": true
-      },
-      "controls": {
-        "quit": "Press 'q' to exit",
-        "fullscreen": "Press 'f' to toggle fullscreen"
-      }
-    },
-    "liveness_detection": {
-      "enabled": true,
-      "model": "ResNet18-based binary classifier",
-      "input_size": "224x224",
-      "threshold": 0.85,
-      "features": [
-        "Spoof detection for anti-spoofing",
-        "Real-time frame analysis",
-        "Graceful degradation if model not available"
-      ]
-    },
-    "performance_optimizations": {
-      "device_auto_selection": "Automatically uses CUDA if available, falls back to CPU",
-      "batch_processing": "Single frame processing for real-time performance",
-      "memory_management": "Automatic garbage collection"
-    }
-  },
-  "notes": [
-    "Model uses ResNet50 as backbone with a custom 512-D embedding layer",
-    "Centroid-based inference is used for better generalization to unseen data",
-    "Training uses mixed precision (FP16) for faster training and reduced memory usage",
-    "Class weights and weighted sampling are used to handle class imbalance",
-    "Early stopping and model checkpointing are implemented for better training stability",
-    "Real-time video processing with liveness detection for anti-spoofing",
-    "Robust error handling for missing model files or configurations"
-  ]
 }
